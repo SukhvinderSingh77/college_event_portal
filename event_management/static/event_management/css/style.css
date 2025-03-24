@@ -1,0 +1,16 @@
+body {
+    font-family: Open Sans, sans-serif;
+  }
+  .navbar-brand {
+    font-family: Montserrat, sans-serif;
+    font-size: 22px;
+  }
+  .container {
+    max-width: 1200px;
+  }
+  .event-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }

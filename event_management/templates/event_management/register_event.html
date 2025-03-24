@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<!-- event_management/templates/event_management/register_event.html -->
+{% if request.user.is_authenticated %}
+  <h1>Register for {{ event.name }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+  <p>
+    Already registered? <a href="{% url 'login_view' %}">Login</a> <br>
+    Login As An Admin <a href="{% url 'admin:index' %}">Admin Login</a>
+  </p>
+  {% else %}
+  <h1>{{ event.name }}</h1>
+  <p>{{ event.description }}</p>
+  <a href="{% url 'login' %}">Login to Register</a>
+{% endif %}
+<a href="{% url 'event_list' %}">Back to Events List</a>
+</html>

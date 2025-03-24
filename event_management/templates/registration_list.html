@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<h1>Registrations List</h1>
+<ul>
+{% for registration in registrations %}
+<li>{{ registration.user.username }} - {{ registration.event.name }}</li>
+{% empty %}
+<li>No registrations found.</li>
+{% endfor %}
+</ul>
+<a href="{% url 'event_list' %}">Back to Events List</a>
+</html>

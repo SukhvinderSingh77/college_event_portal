@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="hero-section bg-dark text-white p-5 text-center">
+        <h1 class="display-1 hero-title">Celebrate Learning, Enjoy Campus Life</h1>
+        <p class="lead hero-subtitle">Explore upcoming events at our college</p>
+        <a href="{% url 'event_list' %}" class="btn btn-secondary btn-lg hero-button">View Events</a>
+    </div>
+    <div class="container mt-5 text-center">
+        <h2 class="event-header display-4 text-primary">Upcoming Events</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+            {% for event in events %}
+            <div class="col">
+                <div class="card event-card shadow bg-white rounded h-100">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title text-primary">{{ event.title }}</h5>
+                        <p class="card-text text-secondary">{{ event.description }}</p>
+                        <a href="{% url 'event_detail' event.id %}" class="btn btn-primary btn-sm mt-auto">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-secondary">No upcoming events.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

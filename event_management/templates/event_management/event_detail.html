@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<!-- event_management/templates/event_management/event_detail.html -->
+<head>
+  <title>Event Details - {{ event.name }}</title>
+</head>
+<body>
+  <div class="container mt-5 text-center">
+    <h1 class="display-4 text-primary">{{ event.name }}</h1>
+    <div class="card event-card shadow bg-white rounded h-100 mt-3">
+      <div class="card-body">
+        <p class="card-text text-secondary">{{ event.description }}</p>
+        <p class="card-text text-secondary"><strong>Event Date:</strong> {{ event.event_date }}</p>
+        <div class="mt-3">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'register_event' event.id %}" class="btn btn-primary btn-sm">Register</a>
+          {% else %}
+          <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Login to Register</a>
+          {% endif %}
+          <a href="{% url 'event_list' %}" class="btn btn-secondary btn-sm ms-2">Back to Events List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

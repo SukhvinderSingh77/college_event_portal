@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+{% for event in events %}
+  <h1>{{ event.name }}</h1>
+  <p>{{ event.description }}</p>
+  <p:Event Date: {{ event.event_date }}/p>
+  {% if request.user.is_authenticated %}
+    {% if event.id %}
+      <a href="{% url 'register_event' event.id %}">Register</a>
+    {% else %}
+      Event id not available
+    {% endif %}
+  {% else %}
+    <a href="{% url 'login' %}">Login to Register</a> <br>
+  {% endif %} <br>
+    <a href="{% url 'event_list' %}">This Is Our Events List</a>
+{% empty %}
+  No events found.
+{% endfor %}
