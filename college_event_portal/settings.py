@@ -23,10 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@s#p1ea6a*e+ivmri0)dnitd!byq!%21t%90ud$v93f#2xl4e-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 TEMPLATE_404 = '404.html'  # create this file in templates directory
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'yourdomain.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'Sukhvinder666.pythonanywhere.com']
 
+# Security settings
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
